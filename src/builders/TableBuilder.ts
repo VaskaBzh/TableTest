@@ -6,24 +6,12 @@ import { TableTitle } from "@/consts";
 import {TextFormatter} from "@/formatters";
 
 export class TableBuilder implements TableBuilderContract {
-    private tableSize: number;
-    private tableModel: TableType;
+    private readonly tableSize: number;
+    private readonly tableModel: TableType;
 
     private constructor(tableModel: typeof TableModel = TableModel) {
-        this.setTableSize()
-            .setTableModel(tableModel);
-    }
-
-    private setTableSize(): this {
         this.tableSize = RandomizeTrait.getRandomValue(1, 10);
-
-        return this;
-    }
-
-    private setTableModel(tableModel: typeof TableModel = TableModel): this {
         this.tableModel = new tableModel();
-
-        return this;
     }
 
     // Основные ручки
@@ -38,7 +26,7 @@ export class TableBuilder implements TableBuilderContract {
             this.tableModel.titles.push(
                 TextFormatter.ReplaceText(
                     TableTitle,
-                    i + 1,
+                    String(i + 1),
                     '{number}'
                 )
             )

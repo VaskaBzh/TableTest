@@ -1,1 +1,1 @@
-export { TableComponentContract } from "./TableComponentContract";
+export type { TableComponentContract } from "./TableComponentContract";

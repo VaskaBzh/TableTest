@@ -5,9 +5,11 @@
 </template>
 
 <script setup lang="ts">
+import { TableValue } from "@/types";
+
 withDefaults(
 	defineProps<{
-		value: string | number,
+		value: string | TableValue,
 		tag?: string,
 	}>(),
 	{
