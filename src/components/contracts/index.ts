@@ -1,0 +1,1 @@
+export { TableComponentContract } from "./TableComponentContract";

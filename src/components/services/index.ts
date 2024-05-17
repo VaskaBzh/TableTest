@@ -1,0 +1,1 @@
+export { TableComponentService } from "./TableComponentService";

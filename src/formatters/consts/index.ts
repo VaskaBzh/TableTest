@@ -1,0 +1,6 @@
+export {
+    FIRST_SPLIT_INDEX,
+    SECOND_SPLIT_INDEX,
+    FIRST_VALUE_TO_SPLIT,
+    SECOND_VALUE_TO_SPLIT
+} from "./SplitTextConst";
