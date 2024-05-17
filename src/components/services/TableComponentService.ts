@@ -1,5 +1,5 @@
 import { TableValue } from "@/types";
-import { TableComponentContract } from "@/components/contracts";
+import { TableComponentContract } from "../contracts";
 
 export class TableComponentService implements TableComponentContract {
     private readonly savedTableValues: TableValue[];
