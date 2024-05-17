@@ -1,12 +1,12 @@
 <template>
-	<secrion class="home">
+	<section class="home">
 		<div class="container">
 			<main-table
 				:values="tableService.table.values"
 				:titles="tableService.table.titles"
 			/>
 		</div>
-	</secrion>
+	</section>
 </template>
 
 <script setup lang="ts">

@@ -1,5 +1,16 @@
 <template>
-	<component :is="tag" class="column">
+	<component
+		:is="
+			type === 'body'
+				? 'td'
+				: 'th'
+		"
+		class="column"
+		@click="sortColumn"
+		:class="{
+			'column-sortable': type === 'head'
+		}"
+	>
 		{{ value }}
 	</component>
 </template>
@@ -7,15 +18,24 @@
 <script setup lang="ts">
 import { TableValue } from "@/types";
 
-withDefaults(
+const props = withDefaults(
 	defineProps<{
 		value: string | TableValue,
-		tag?: string,
+		columnIndex: number,
+		type?: string,
 	}>(),
 	{
-		tag: "td"
+		type: "body"
 	}
 );
+
+const emit = defineEmits(['sortColumn']);
+
+const sortColumn = (): void => {
+	if (props.type === "head") {
+		emit("sortColumn", props.columnIndex)
+	}
+}
 </script>
 
 <style scoped lang="scss">
@@ -24,5 +44,8 @@ withDefaults(
 	border: 1px solid #000;
 	text-align: center;
 	color: #000;
+	&-sortable {
+		cursor: pointer;
+	}
 }
 </style>
